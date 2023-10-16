@@ -4,10 +4,10 @@ from selenium.webdriver.common.by import By
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import lit, expr
 from pyspark.sql.functions import col
-from Comma.common import get_course_rate, customize_text as customized, \
+from Common.common import get_course_rate, customize_text as customized, \
       have_multiple_courses as muticourse, split_courses as course_split, \
       remove_lang
-from Writer.writer import upload_to_firebase
+from Common.Writer.writer import upload_to_firebase
 from firebase_config.fireConf import initialise_firebase
 
   
