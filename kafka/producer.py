@@ -1,5 +1,5 @@
 from kafka_config.prodConf import send_df_as_json
-from reader.reader import reader, remove_temp
+from Common.reader.reader import reader, remove_temp
 
 
 def production():
