@@ -1,5 +1,4 @@
 from firebase_admin import storage
-from firebase_config.fireConf import initialise_firebase
 from pyspark.sql import SparkSession
 import tempfile
 import os
@@ -53,7 +52,6 @@ def remove_temp(temp_files):
 
 
 def reader():
-    initialise_firebase()
     data = reader_bytes()
     df, temp = text_to_df(data)
     return df, temp 

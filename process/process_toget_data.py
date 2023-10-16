@@ -17,7 +17,7 @@ def process_toget_data():
     spark = SparkSession.builder.appName("hello").getOrCreate()
     chrome_options = Options()
     chrome_options.add_argument('--headless')
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome()
     driver.get("https://data-flair.training/")
     elements = driver.find_elements(By.XPATH, '//div[@class="course-tile"]/p[1]')
 
@@ -42,7 +42,6 @@ def process_toget_data():
     df.write.mode('overwrite').parquet(r'C:\Users\ahafsi\project beta\myfiles')
 
     # New codeww to upload all files in the directory
-    initialise_firebase()
     directory_path = r'C:\Users\ahafsi\project beta\myfiles'
     for filename in os.listdir(directory_path):
         # Construct file path
