@@ -1,6 +1,7 @@
 import os
 from selenium import webdriver 
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import lit, expr
 from pyspark.sql.functions import col
@@ -14,7 +15,9 @@ from firebase_config.fireConf import initialise_firebase
 def process_toget_data():
     
     spark = SparkSession.builder.appName("hello").getOrCreate()
-    driver = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    driver = webdriver.Chrome(options=chrome_options)
     driver.get("https://data-flair.training/")
     elements = driver.find_elements(By.XPATH, '//div[@class="course-tile"]/p[1]')
 
